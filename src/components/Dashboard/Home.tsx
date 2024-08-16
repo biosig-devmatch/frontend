@@ -19,9 +19,6 @@ const Home: React.FC = () => {
           <TransactionQueue />
         </div>
         <div className="col-span-12">
-          <AllTransactions />
-        </div>
-        <div className="col-span-12">
           <TransactionForm />
         </div>
         <div className="col-span-12">

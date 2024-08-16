@@ -1,8 +1,14 @@
 import React from 'react'
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import AllTransactions from "@/components/Dashboard/AllTransactions";
 
 const page = () => {
   return (
-    <div>page</div>
+      <DefaultLayout>
+        <div className="col-span-12">
+          <AllTransactions />
+        </div>
+      </DefaultLayout>
   )
 }
 
