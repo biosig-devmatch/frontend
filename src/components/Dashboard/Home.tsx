@@ -1,11 +1,8 @@
 "use client";
+
 import React from "react";
 import Overview from "./Overview";
 import TransactionQueue from "@/components/Dashboard/TransactionQueue";
-import Balance from "@/components/Dashboard/Balance";
-import AssetBalance from "@/components/Dashboard/AssetBalance";
-import AllTransactions from "@/components/Dashboard/AllTransactions";
-import TransactionForm from "@/components/Dashboard/TransactionForm";
 import TransactionReviewConfirm from "@/components/Dashboard/TransactionReviewConfirm";
 
 const Home: React.FC = () => {
@@ -18,9 +15,9 @@ const Home: React.FC = () => {
         <div className="col-span-12">
           <TransactionQueue />
         </div>
-        <div className="col-span-12">
-          <TransactionReviewConfirm />
-        </div>
+        {/*<div className="col-span-12">*/}
+        {/*  <TransactionReviewConfirm />*/}
+        {/*</div>*/}
       </div>
     </>
   );
