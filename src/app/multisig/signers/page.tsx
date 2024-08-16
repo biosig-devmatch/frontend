@@ -75,7 +75,7 @@ const SignersPage = () => {
           </CardContent>
         </Card>
         
-        <Card className="bg-gray-900 border-gray-800">
+        <Card className="bg-gray-900 border-gray-800 mb-16">
           <CardContent className="p-6">
             <h2 className="text-2xl mb-4 text-white">Thresholds</h2>
             <p className="mb-4 text-gray-400">Specify the threshold of signatures needed to approve transactions.</p>
