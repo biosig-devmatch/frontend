@@ -17,7 +17,7 @@ const SidebarAccount = () => {
           <Image
             width={112}
             height={112}
-            src="/images/arbitrum-logo.png"
+            src="/images/dummy-image.png"
             style={{
               width: "auto",
               height: "auto",
