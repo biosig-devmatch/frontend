@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from "@/components/Dashboard/Dashboard";
+import Home from "@/components/Dashboard/Home";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 
@@ -7,7 +7,7 @@ export default function page() {
   return (
     <>
       <DefaultLayout>
-        <Dashboard />
+        <Home />
       </DefaultLayout>
     </>
   );

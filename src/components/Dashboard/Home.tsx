@@ -8,7 +8,7 @@ import AllTransactions from "@/components/Dashboard/AllTransactions";
 import TransactionForm from "@/components/Dashboard/TransactionForm";
 import TransactionReviewConfirm from "@/components/Dashboard/TransactionReviewConfirm";
 
-const Dashboard: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <>
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-9 2xl:gap-7.5">
@@ -17,12 +17,6 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="col-span-12">
           <TransactionQueue />
-        </div>
-        <div className="col-span-12">
-          <Balance />
-        </div>
-        <div className="col-span-12">
-          <AssetBalance />
         </div>
         <div className="col-span-12">
           <AllTransactions />
@@ -38,4 +32,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Home;

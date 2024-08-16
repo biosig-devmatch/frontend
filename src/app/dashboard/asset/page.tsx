@@ -1,8 +1,14 @@
 import React from 'react'
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import Assets from "@/components/Dashboard/Assets";
 
 const page = () => {
   return (
-    <div>dashboard asset here</div>
+      <>
+        <DefaultLayout>
+            <Assets />
+        </DefaultLayout>
+      </>
   )
 }
 
