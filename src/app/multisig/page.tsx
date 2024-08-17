@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 import { Input } from '../components/ui/input';
@@ -9,12 +9,11 @@ import { useActiveAccount } from 'thirdweb/react';
 
 const MultisigSetupPage = () => {
 
-
-  const isConnected = useState(true);
-
-
-
+  const [isConnected, setIsConnected] = useState(false);
   const account = useActiveAccount();
+  useEffect(() => {
+    setIsConnected(account?.address !== null);
+  }, [account?.address]);
   
   return (
     <div className="bg-black text-white min-h-screen">      
@@ -25,10 +24,11 @@ const MultisigSetupPage = () => {
             <div className="bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center">1</div>
             <div className="flex-grow">
               <h2 className="text-xl mb-2">Connect Wallet</h2>
-              {
-                isConnected ? <Button variant="secondary">Connect</Button> 
-                :   <div>{account?.address}</div>
-                }
+              {isConnected ? (
+                <div>{account?.address}</div>
+              ) : (
+                <p>Connect Wallet First</p>
+              )}
             </div>
           </li>
           <li className="flex items-center space-x-4">
@@ -56,7 +56,13 @@ const MultisigSetupPage = () => {
         </ol>
       </main>
       
-      <footer className="absolute bottom-0 w-full p-4 text-center text-gray-500">
+      <footer className="absolute bottom-0 w-full p-4 justify-between text-center text-gray-500">
+        <Button asChild variant="secondary" className="bg-gray-800 text-white hover:bg-gray-700">
+          <Link href="/welcome">Previous</Link>
+        </Button>
+        <Button variant="secondary" className="bg-gray-800 text-white hover:bg-gray-700">
+          <Link href='/dashboard[multisigAddress]'>Continue</Link>
+        </Button>
         <a href="#" className="hover:text-white">Terms of Use</a> | <a href="#" className="hover:text-white">Privacy Policy</a>
       </footer>
     </div>
