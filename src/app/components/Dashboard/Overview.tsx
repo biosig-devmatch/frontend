@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 interface OverviewProps {
   multisigData: {
@@ -48,7 +49,7 @@ const Overview: React.FC<OverviewProps> = ({ multisigData, multisigAddress }) =>
               </div>
             </div>
             <div className="mx-4 flex justify-between">
-              <Button variant="outline">view account</Button>
+              <Button variant="outline" asChild><Link href={`https://debank.com/profile/${owner}`}>view account</Link></Button>
             </div>
           </div>
         ))}
