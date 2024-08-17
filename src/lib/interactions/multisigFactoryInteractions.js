@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 
-const contractAddress = "0x32885f7c8e9af7a9c371e1a6f99a35c5f9181244";
+const contractAddress = "0x96f45a38490D74FE6c34aEeE06c1098d5dA287d6";
 const MultisigFactoryABI = [
   {
     inputs: [
