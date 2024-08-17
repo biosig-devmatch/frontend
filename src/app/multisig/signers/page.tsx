@@ -8,7 +8,13 @@ import { ChevronDown, ChevronUp, Plus, X } from 'lucide-react';
 import Link from 'next/link';
 import InputGroup from "@/components/FormElements/InputGroup";
 
-const SignerInput = ({ index, totalSigners, onRemove }: { index: number, onRemove: () => void }) => (
+type SignerInputProps = {
+  index: number;
+  totalSigners: number;
+  onRemove: () => void;
+};
+
+const SignerInput = ({ index, totalSigners, onRemove }: SignerInputProps) => (
   <div className={`grid grid-cols-2 gap-4 mb-4 ${index === totalSigners - 1 ? 'pb-4' : ''}`}>
       <InputGroup
           label={`Signer Name ${index + 1}`}
