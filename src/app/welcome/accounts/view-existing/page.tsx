@@ -1,59 +1,62 @@
 "use client"
-
 import React, { useState, useEffect } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from "@/app/components/ui/card";
-import { Badge } from "@/app/components/ui/badge";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/app/components/ui/accordion";
-import { defineChain, getContract } from "thirdweb";
-import { getContractMetadata } from "thirdweb/extensions/common";
-import { useActiveAccount, useReadContract } from 'thirdweb/react';
-import { client } from "../../../client";
-import  chain  from "../../../chain";
-import { sepolia } from 'thirdweb/chains';
+import { getAllDeployedContracts } from '@/lib/interactions/multisigFactoryInteractions';
+import { interactWithMultisig } from '@/lib/interactions/multisigInteractions';
 
+export default function MultisigExistingAccountPage() {
+  const [deployedContracts, setDeployedContracts] = useState([]);
+  const [contractOwners, setContractOwners] = useState<{ [key: string]: string[] }>({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-//      call getAllDeployedContracts() to see an array of all deployed multisigwallets address, 
-//      then go to each multisigwallets contract address, and call getOwners(), only show if any of 
-//      the addresses within the getOwners() returned array is === the connected wallet address, and contract !== contract creator
+  useEffect(() => {
+    async function fetchContractsAndOwners() {
+      try {
+        // Fetch all deployed contract addresses
+        const contracts = await getAllDeployedContracts();
+        setDeployedContracts(contracts);
 
-//      for each wallet, that is contract creator add them to another .
+        // Fetch owners for each contract
+        const ownersData: { [key: string]: string[] } = {};
+        for (const contractAddress of contracts) {
+          const { owners } = await interactWithMultisig(contractAddress);
+          ownersData[contractAddress] = owners;
+        }
+        setContractOwners(ownersData);
 
-//      i want to show contract creator(deployer) at the top, and signer at the bottom. just somehow differentiate them.
+        setIsLoading(false);
+      } catch (err) {
+        console.error(err);
+        setIsLoading(false);
+      }
+    }
 
+    fetchContractsAndOwners();
+  }, []);
 
-
-
-
-
-
-
-const multisigExistingAccountPage = () => {
-
- 
-
-    const account = useActiveAccount();
-
-
-    const multisigFactoryContract = getContract({
-        client: client,
-        chain: defineChain( sepolia ),
-        address: "0x32885f7c8e9af7a9c371e1a6f99a35c5f9181244"
-    });
-
-    const { data } = useReadContract( getContractMetadata,
-        { contract: multisigFactoryContract }
-    );
-   
-    console.log(multisigFactoryContract);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <>
-        <div>{account?.address}</div>
-        <div>{chain.name}</div>
-        <div>{} </div>
-    </>
-
-  )
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Deployed Multisig Contracts</h1>
+      {deployedContracts.length === 0 ? (
+        <p>No contracts deployed yet.</p>
+      ) : (
+        <ul className="space-y-4">
+          {deployedContracts.map((contract, index) => (
+            <li key={index} className="border p-4 rounded-lg">
+              <h2 className="text-xl font-semibold mb-2">Contract: {contract}</h2>
+              <h3 className="text-lg font-medium mb-1">Owners:</h3>
+              <ul className="list-disc list-inside">
+                {contractOwners[contract]?.map((owner, ownerIndex) => (
+                  <li key={ownerIndex}>{owner}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
-
-export default multisigExistingAccountPage
