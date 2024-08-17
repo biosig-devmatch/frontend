@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { getAllDeployedContracts } from '@/lib/interactions/multisigFactoryInteractions';
 import { interactWithMultisig } from '@/lib/interactions/multisigInteractions';
 import { useActiveAccount } from 'thirdweb/react';
+import Link from 'next/link';
+
 
 export default function MultisigExistingAccountPage() {
   const [deployedContracts, setDeployedContracts] = useState<string[]>([]);
@@ -53,15 +55,17 @@ return (
         ) : (
             <ul className="space-y-4">
                 {deployedContracts.map((contract, index) => (
-                    <li key={index} className="border p-4 rounded-lg">
-                        <h2 className="text-xl font-semibold mb-2">Wallet: {contract}</h2>
-                        <h3 className="text-lg font-medium mb-1">Signers:</h3>
-                        <ul className="list-disc list-inside">
-                            {contractOwners[contract]?.map((owner, ownerIndex) => (
-                                    <li key={ownerIndex}>{owner} {owner === account?.address && "(you)"}</li>
-                            ))}
-                        </ul>
-                    </li>
+                  <li key={index} className="border p-4 rounded-lg hover:bg-slate-600">
+                  <Link href={`/dashboard/${contract}`} className="block">
+                    <h2 className="text-xl font-semibold mb-2">Wallet: {contract}</h2>
+                    <h3 className="text-lg font-medium mb-1">Signers:</h3>
+                    <ul className="list-disc list-inside">
+                      {contractOwners[contract]?.map((owner, ownerIndex) => (
+                        <li key={ownerIndex}>{owner} {owner === account?.address && "(you)"}</li>
+                      ))}
+                    </ul>
+                  </Link>
+                </li>
                 ))}
             </ul>
         )}
