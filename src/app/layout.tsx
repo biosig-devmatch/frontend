@@ -4,9 +4,7 @@ import "./globals.css";
 import { ThirdwebProvider, ConnectEmbed, ConnectButton, } from "thirdweb/react";
 
 import { cn } from "@/lib/utils"
-import Header from "./components/Header/Header";
-
-
+import Header from "./components/Header/Header"
 
 
 const fontSans = FontSans({

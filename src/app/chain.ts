@@ -1,6 +1,9 @@
-import { defineChain } from "thirdweb/chains";
+import { defineChain, sepolia } from "thirdweb/chains";
 
-const chain = defineChain(534351);
+const sepoliatestnet = defineChain( sepolia );
+const scrolltestnet = defineChain(534351);
+
+const chains = [sepoliatestnet, scrolltestnet];
 
 
-export default chain;
+export default chains
