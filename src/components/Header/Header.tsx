@@ -4,7 +4,7 @@ import { scrollSepoliaTestnet } from "thirdweb/chains";
 import { ConnectButton, useConnect } from 'thirdweb/react';
 import { createThirdwebClient, defineChain } from "thirdweb";
 import { createWallet, inAppWallet, walletConnect } from 'thirdweb/wallets';
-import useColorMode, { ColorMode } from "@/app/hooks/useColorMode";
+import useColorMode, { ColorMode } from "@/hooks/useColorMode";
 
 const Header = () => {
   const client = createThirdwebClient({
