@@ -1,3 +1,15 @@
+import React from "react";
+
+interface MultisigData {
+  name: string;
+  owners: string[];
+  requiredSignatures: number;
+}
+
+interface AssetBalanceProps {
+  multisigData: MultisigData;
+}
+
 type AssetBal = {
   name: string;
   balance: string;
@@ -26,14 +38,14 @@ const brandData: AssetBal[] = [
   },
 ];
 
-const AssetBalance = () => {
+const AssetBalance: React.FC<AssetBalanceProps> = ({ multisigData }) => {
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <div className="flex flex-col">
         <div className="grid grid-cols-2">
           <div className="px-2 pb-3.5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Assets
+              Assets for {multisigData.name}
             </h5>
           </div>
           <div className="px-2 pb-3.5 text-center">

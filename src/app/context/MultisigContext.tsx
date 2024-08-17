@@ -1,8 +1,4 @@
-"use client";
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import DefaultLayout from '@/app/components/Layouts/DefaultLayout';
-import AllTransactions from '@/app/components/Dashboard/AllTransactions';
+import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { getName } from '@/lib/interactions/multisigFactoryInteractions';
 import { getOwners, getRequiredSignatures } from '@/lib/interactions/multisigInteractions';
 
@@ -12,10 +8,29 @@ interface MultisigData {
   requiredSignatures: number;
 }
 
-const TransactionPage: React.FC = () => {
-  const params = useParams();
-  const multisigAddress = params.multisig_id as string;
+interface MultisigContextType {
+  multisigData: MultisigData;
+  error: string;
+  loading: boolean;
+  multisigAddress: string;
+}
 
+const MultisigContext = createContext<MultisigContextType | null>(null);
+
+export const useMultisigContext = () => {
+  const context = useContext(MultisigContext);
+  if (!context) {
+    throw new Error('useMultisigContext must be used within a MultisigProvider');
+  }
+  return context;
+};
+
+interface MultisigProviderProps {
+  children: ReactNode;
+  multisigAddress: string;
+}
+
+export const MultisigProvider: React.FC<MultisigProviderProps> = ({ children, multisigAddress }) => {
   const [multisigData, setMultisigData] = useState<MultisigData>({
     name: '',
     owners: [],
@@ -53,18 +68,8 @@ const TransactionPage: React.FC = () => {
   }, [multisigAddress]);
 
   return (
-    <DefaultLayout multisigAddress={multisigAddress}>
-      <div className="col-span-12">
-        {loading ? (
-          <div>Loading...</div>
-        ) : error ? (
-          <div>{error}</div>
-        ) : (
-          <AllTransactions multisigData={multisigData} />
-        )}
-      </div>
-    </DefaultLayout>
+    <MultisigContext.Provider value={{ multisigData, error, loading, multisigAddress }}>
+      {children}
+    </MultisigContext.Provider>
   );
 };
-
-export default TransactionPage;
