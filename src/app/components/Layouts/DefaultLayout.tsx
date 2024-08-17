@@ -1,15 +1,16 @@
 "use client";
-import React, { useState, ReactNode, Dispatch, SetStateAction } from "react";
+import React, { useState } from "react";
 import Sidebar from "../Sidebar";
 
-
 export default function DefaultLayout({
-  multisigAddress ,children,
+  multisigAddress,
+  children,
 }: {
   children: React.ReactNode;
   multisigAddress: string;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <>
       <div className="flex h-screen overflow-hidden">

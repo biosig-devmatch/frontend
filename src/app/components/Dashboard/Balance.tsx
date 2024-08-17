@@ -1,8 +1,17 @@
 import React from "react";
 import DashboardButton from "./DashboardButton";
 
+interface MultisigData {
+  name: string;
+  owners: string[];
+  requiredSignatures: number;
+}
 
-const Balance = () => {
+interface BalanceProps {
+  multisigData: MultisigData;
+}
+
+const Balance: React.FC<BalanceProps> = ({ multisigData }) => {
   return (
     <div className="rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <h4 className="mb-5.5 text-body-2xlg font-bold text-dark dark:text-white">
@@ -15,6 +24,9 @@ const Balance = () => {
             <div className="flex flex-col">
               <p className="hidden font-medium text-dark dark:text-white sm:block">
                 $0.00
+              </p>
+              <p className="text-sm">
+                Multisig: {multisigData.name} (Required Signatures: {multisigData.requiredSignatures})
               </p>
             </div>
           </div>

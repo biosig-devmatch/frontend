@@ -61,6 +61,12 @@ const MultisigABI = [
     }
   ];
 
+
+async function getMultisigContract(multisigAddress) {
+  const provider = new ethers.JsonRpcProvider(scrollSepoliaRpcUrl);
+  return new ethers.Contract(multisigAddress, MultisigABI, provider);
+}
+
 export async function interactWithMultisig(multisigAddress) {
   try {
     const provider = new ethers.JsonRpcProvider(scrollSepoliaRpcUrl);
@@ -87,6 +93,77 @@ export async function interactWithMultisig(multisigAddress) {
     return { owners, requiredSignatures };
   } catch (error) {
     console.error("Error interacting with Multisig contract:", error);
+    throw error;
+  }
+}
+
+
+export async function getOwners(multisigAddress) {
+  try {
+    const contract = await getMultisigContract(multisigAddress);
+    const owners = await contract.getOwners();
+    console.log("Owners of Multisig at", multisigAddress, ":", owners);
+    return owners;
+  } catch (error) {
+    console.error("Error fetching owners:", error);
+    throw error;
+  }
+}
+
+export async function getRequiredSignatures(multisigAddress) {
+  try {
+    const contract = await getMultisigContract(multisigAddress);
+    const requiredSignatures = await contract.getRequiredSignatures();
+    console.log("Required signatures:", requiredSignatures);
+    return requiredSignatures
+  } catch (error) {
+    console.error("Error fetching required signatures:", error);
+    throw error;
+  }
+}
+
+export async function getTransaction(multisigAddress, transactionId) {
+  try {
+    const contract = await getMultisigContract(multisigAddress);
+    const transaction = await contract.getTransaction(transactionId);
+    console.log(`Transaction ${transactionId}:`, transaction);
+    return {
+      to: transaction[0],
+      value: transaction[1],
+      data: transaction[2],
+      executed: transaction[3],
+      numConfirmations: transaction[4]
+    };
+  } catch (error) {
+    console.error(`Error fetching transaction ${transactionId}:`, error);
+    throw error;
+  }
+}
+
+export async function submitTransaction(multisigAddress, to, value, data, signer) {
+  try {
+    const contract = await getMultisigContract(multisigAddress);
+    const contractWithSigner = contract.connect(signer);
+    const tx = await contractWithSigner.submitTransaction(to, value, data);
+    await tx.wait();
+    console.log("Transaction submitted:", tx.hash);
+    return tx.hash;
+  } catch (error) {
+    console.error("Error submitting transaction:", error);
+    throw error;
+  }
+}
+
+export async function signTransaction(multisigAddress, transactionId, signer) {
+  try {
+    const contract = await getMultisigContract(multisigAddress);
+    const contractWithSigner = contract.connect(signer);
+    const tx = await contractWithSigner.signTransaction(transactionId);
+    await tx.wait();
+    console.log("Transaction signed:", tx.hash);
+    return tx.hash;
+  } catch (error) {
+    console.error("Error signing transaction:", error);
     throw error;
   }
 }

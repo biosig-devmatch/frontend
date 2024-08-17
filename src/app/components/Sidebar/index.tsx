@@ -22,7 +22,7 @@ interface SidebarProps {
 
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen, multisigAddress }: SidebarProps) => {
-
+  const baseUrl = multisigAddress ? `/dashboard/${multisigAddress}` : '/dashboard';
   const menuGroups = [
     {
       name: "MAIN MENU",
@@ -50,7 +50,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, multisigAddress }: SidebarProps)
             </svg>
           ),
           label: "Home",
-          route: `/dashboard/${multisigAddress}`,
+          route: baseUrl,
         },
         {
           icon: (
@@ -71,7 +71,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, multisigAddress }: SidebarProps)
             </svg>
           ),
           label: "Assets",
-          route: `/dashboard/${multisigAddress}/asset`,
+          route: `${baseUrl}/asset`,
         },
         {
           icon: (
@@ -98,7 +98,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, multisigAddress }: SidebarProps)
             </svg>
           ),
           label: "Transactions",
-          route: `/dashboard/${multisigAddress}/transaction`,
+          route: `${baseUrl}/transaction`,
         },
       ],
     },
@@ -168,7 +168,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, multisigAddress }: SidebarProps)
       >
         {/* <!-- SIDEBAR HEADER --> */}
         <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5 xl:py-10">
-          <Link href="/dashboard" className="text-6xl">
+          <Link href={baseUrl} className="text-6xl">
             <span className="dark:text-primary-dark ml-2 text-2xl">Dashboard</span>
           </Link>
 
@@ -197,10 +197,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, multisigAddress }: SidebarProps)
           {/* <!-- Sidebar Menu --> */}
           <nav className="mt-1 px-4 lg:px-6">
             <div className="mb-6">
-              <SidebarAccount />
-            </div>
-            <div className="mb-10">
-              <SidebarAccountActions />
+              <SidebarAccount multisigAddress={multisigAddress}/>
             </div>
             {menuGroups.map((group, groupIndex) => (
               <div key={groupIndex}>
