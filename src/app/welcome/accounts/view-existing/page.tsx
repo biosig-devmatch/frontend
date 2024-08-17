@@ -2,28 +2,36 @@
 import React, { useState, useEffect } from 'react';
 import { getAllDeployedContracts } from '@/lib/interactions/multisigFactoryInteractions';
 import { interactWithMultisig } from '@/lib/interactions/multisigInteractions';
+import { useActiveAccount } from 'thirdweb/react';
 
 export default function MultisigExistingAccountPage() {
-  const [deployedContracts, setDeployedContracts] = useState([]);
+  const [deployedContracts, setDeployedContracts] = useState<string[]>([]);
   const [contractOwners, setContractOwners] = useState<{ [key: string]: string[] }>({});
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const account = useActiveAccount();
 
   useEffect(() => {
     async function fetchContractsAndOwners() {
-      try {
-        // Fetch all deployed contract addresses
-        const contracts = await getAllDeployedContracts();
-        setDeployedContracts(contracts);
+      if (!account?.address) {
+        setIsLoading(false);
+        return;
+      }
 
-        // Fetch owners for each contract
+      try {
+        const contracts = await getAllDeployedContracts();
         const ownersData: { [key: string]: string[] } = {};
+        const filteredContracts = [];
+
         for (const contractAddress of contracts) {
           const { owners } = await interactWithMultisig(contractAddress);
-          ownersData[contractAddress] = owners;
+          if (owners.includes(account.address)) {
+            ownersData[contractAddress] = owners;
+            filteredContracts.push(contractAddress);
+          }
         }
-        setContractOwners(ownersData);
 
+        setDeployedContracts(filteredContracts);
+        setContractOwners(ownersData);
         setIsLoading(false);
       } catch (err) {
         console.error(err);
@@ -32,31 +40,31 @@ export default function MultisigExistingAccountPage() {
     }
 
     fetchContractsAndOwners();
-  }, []);
+  }, [account?.address]);
+
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
 
-  return (
+return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Deployed Multisig Contracts</h1>
-      {deployedContracts.length === 0 ? (
-        <p>No contracts deployed yet.</p>
-      ) : (
-        <ul className="space-y-4">
-          {deployedContracts.map((contract, index) => (
-            <li key={index} className="border p-4 rounded-lg">
-              <h2 className="text-xl font-semibold mb-2">Contract: {contract}</h2>
-              <h3 className="text-lg font-medium mb-1">Owners:</h3>
-              <ul className="list-disc list-inside">
-                {contractOwners[contract]?.map((owner, ownerIndex) => (
-                  <li key={ownerIndex}>{owner}</li>
+        <h1 className="text-2xl font-bold mb-4">Deployed Multisig Contracts</h1>
+        {deployedContracts.length === 0 ? (
+            <p>No contracts deployed yet.</p>
+        ) : (
+            <ul className="space-y-4">
+                {deployedContracts.map((contract, index) => (
+                    <li key={index} className="border p-4 rounded-lg">
+                        <h2 className="text-xl font-semibold mb-2">Wallet: {contract}</h2>
+                        <h3 className="text-lg font-medium mb-1">Signers:</h3>
+                        <ul className="list-disc list-inside">
+                            {contractOwners[contract]?.map((owner, ownerIndex) => (
+                                    <li key={ownerIndex}>{owner} {owner === account?.address && "(you)"}</li>
+                            ))}
+                        </ul>
+                    </li>
                 ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      )}
+            </ul>
+        )}
     </div>
-  );
+);
 }
