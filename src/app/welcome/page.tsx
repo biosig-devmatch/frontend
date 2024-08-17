@@ -17,13 +17,7 @@ const tagList = [
     label: "Gasless transactions",
   },
   {
-    label: "Something here",
-  },
-  {
-    label: "Something here",
-  },
-  {
-    label: "Something here",
+    label: "Multichain support",
   },
 ];
 
@@ -68,7 +62,7 @@ const WelcomePage: React.FC = () => {
                   <p className="mb-10 flex w-full items-center justify-center gap-3.5">open an existing one.</p>
                 <div>
                   <Link
-                    href="/welcome/accounts"
+                    href="/multisig"
                     className="flex w-64 items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-[15px] font-medium hover:bg-opacity-50 dark:border-dark-3 dark:bg-dark dark:hover:bg-opacity-50"
                   >
                     Create an account
@@ -107,10 +101,10 @@ const WelcomePage: React.FC = () => {
                 />
               </Link>
               <h1 className="mb-4 text-2xl font-bold text-dark dark:text-white sm:text-heading-3">
-                A new way of ownership
+                Multisig wallet with Biometric AA and Multichain Support
               </h1>
               <p className="w-full max-w-[375px] font-medium text-dark-4 dark:text-dark-6">
-                The most trusted decentralized custody protocol and collective asset management platform leveraging the power of smart accounts.
+                A multisig wallet that uses biometric authentication to enable seedless interactions and secure asset transfers across multiple chains.
               </p>
               <div className="mt-14 mb-60">
                 <div className="grid grid-cols-2 gap-4">
