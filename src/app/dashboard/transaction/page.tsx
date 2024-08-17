@@ -1,6 +1,7 @@
+import AllTransactions from '@/app/components/Dashboard/AllTransactions'
+import DefaultLayout from '@/app/components/Layouts/DefaultLayout'
 import React from 'react'
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import AllTransactions from "@/components/Dashboard/AllTransactions";
+
 
 const page = () => {
   return (

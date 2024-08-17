@@ -1,6 +1,7 @@
+import Assets from '@/app/components/Dashboard/Assets'
+import DefaultLayout from '@/app/components/Layouts/DefaultLayout'
 import React from 'react'
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Assets from "@/components/Dashboard/Assets";
+
 
 const page = () => {
   return (

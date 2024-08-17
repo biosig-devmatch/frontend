@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css";
 import { ThirdwebProvider, ConnectEmbed, ConnectButton, } from "thirdweb/react";
-import Header from "@/components/Header/Header";
+
 import { cn } from "@/lib/utils"
+import Header from "./components/Header/Header";
 
 
 

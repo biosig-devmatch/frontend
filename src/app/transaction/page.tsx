@@ -1,7 +1,8 @@
 "use client"
 
 import React from 'react';
-import InputGroup from "@/components/FormElements/InputGroup";
+import InputGroup from '../components/FormElements/InputGroup';
+
 
 const TransactionAmountPage = () => {
   return (

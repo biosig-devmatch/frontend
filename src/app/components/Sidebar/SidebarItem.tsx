@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import SidebarDropdown from "@/components/Sidebar/SidebarDropdown";
+import SidebarDropdown from "./SidebarDropdown";
+
 
 const SidebarItem = ({ item, pageName, setPageName }: any) => {
   const handleClick = () => {

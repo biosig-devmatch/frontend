@@ -1,6 +1,7 @@
 import React from 'react'
-import Home from "@/components/Dashboard/Home";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import DefaultLayout from '../components/Layouts/DefaultLayout';
+import Home from '../components/Dashboard/Home';
+
 
 
 export default function page() {

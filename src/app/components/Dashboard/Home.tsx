@@ -2,7 +2,8 @@
 
 import React from "react";
 import Overview from "./Overview";
-import TransactionQueue from "@/components/Dashboard/TransactionQueue";
+import TransactionQueue from "./TransactionQueue";
+
 // import TransactionReviewConfirm from "@/components/Dashboard/TransactionReviewConfirm";
 
 const Home: React.FC = () => {

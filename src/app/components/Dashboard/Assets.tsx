@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import Balance from "@/components/Dashboard/Balance";
-import AssetBalance from "@/components/Dashboard/AssetBalance";
+import Balance from "./Balance";
+import AssetBalance from "./AssetBalance";
+
 
 const Assets: React.FC = () => {
     return (

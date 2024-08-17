@@ -1,6 +1,7 @@
+import InputGroup from '@/app/components/FormElements/InputGroup';
+import { Card } from '@/app/components/ui/card';
 import React from 'react';
-import { Card } from "@/components/ui/card";
-import InputGroup from "@/components/FormElements/InputGroup";
+
 
 const GoogleAccountButton = () => {
   return (

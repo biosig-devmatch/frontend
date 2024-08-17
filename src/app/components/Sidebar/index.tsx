@@ -4,12 +4,14 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import SidebarItem from "@/components/Sidebar/SidebarItem";
-import ClickOutside from "../ClickOutside";
-import useLocalStorage from "@/hooks/useLocalStorage";
 
-import SidebarAccount from "@/components/Sidebar/SidebarAccount";
-import SidebarAccountActions from "@/components/Sidebar/SidebarAccountActions";
+import ClickOutside from "../ClickOutside";
+import useLocalStorage from "@/app/hooks/useLocalStorage";
+import SidebarAccount from "./SidebarAccount";
+import SidebarAccountActions from "./SidebarAccountActions";
+import SidebarItem from "./SidebarItem";
+
+
 
 interface SidebarProps {
   sidebarOpen: boolean;

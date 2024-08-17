@@ -1,9 +1,10 @@
 "use client";
-import { GoogleGeminiEffectDemo } from "@/components/GoogleGeminiEffectDemo";
-import IntroduceSection from "@/components/LandingPage/Introduce";
-import OurTeamSection from "@/components/LandingPage/OurTeam";
+
 import { useScroll } from "framer-motion";
 import React, { useState, useEffect } from "react";
+import { GoogleGeminiEffectDemo } from "./components/GoogleGeminiEffectDemo";
+import IntroduceSection from "./components/LandingPage/Introduce";
+import OurTeamSection from "./components/LandingPage/OurTeam";
 
 export default function Home() {
   const { scrollY } = useScroll();

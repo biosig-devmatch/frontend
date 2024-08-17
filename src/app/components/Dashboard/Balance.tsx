@@ -1,5 +1,6 @@
 import React from "react";
-import DashboardButton from "@/components/Dashboard/DashboardButton";
+import DashboardButton from "./DashboardButton";
+
 
 const Balance = () => {
   return (
