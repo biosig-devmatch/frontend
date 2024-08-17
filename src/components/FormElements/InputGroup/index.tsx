@@ -5,7 +5,6 @@ interface InputGroupProps {
   label: string;
   type: string;
   placeholder: string;
-  required?: boolean;
 }
 
 const InputGroup: React.FC<InputGroupProps> = ({
@@ -13,14 +12,12 @@ const InputGroup: React.FC<InputGroupProps> = ({
   label,
   type,
   placeholder,
-  required,
 }) => {
   return (
     <>
       <div className={customClasses}>
         <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
           {label}
-          {required && <span className="text-red">*</span>}
         </label>
         <input
           type={type}

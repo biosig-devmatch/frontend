@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <div className="dark:bg-gray-dark bg-gray-100 drop-shadow-md lg:px-6 px-4 lg:py-3 py-3 flex justify-between items-center">
-      <div className="text-xl font-bold ">
+      <div className="text-2xl font-bold ">
         <a href="/" className="dark:text-white text-black font-bold">Biosig</a>
       </div>
       <DarkModeSwitcher colorMode={colorMode} setColorMode={setColorMode} />

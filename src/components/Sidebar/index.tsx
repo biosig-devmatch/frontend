@@ -43,7 +43,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Home",
-        route: "#",
+        route: "/dashboard",
       },
       {
         icon: (
@@ -64,7 +64,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Assets",
-        route: "#",
+        route: "/dashboard/asset",
       },
       {
         icon: (
@@ -91,7 +91,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Transactions",
-        route: "#",
+        route: "/dashboard/transaction",
       },
     ],
   },
@@ -149,7 +149,7 @@ const menuGroups = [
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const pathname = usePathname();
 
-  const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
+  const [pageName, setPageName] = useLocalStorage("selectedMenu", "home");
 
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
@@ -162,9 +162,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       >
         {/* <!-- SIDEBAR HEADER --> */}
         <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5 xl:py-10">
-          <Link href="/" className="text-6xl">
-            BioSig
-            <span className="dark:text-primary-dark ml-2 text-2xl">Wallet</span>
+          <Link href="/dashboard" className="text-6xl">
+            <span className="dark:text-primary-dark ml-2 text-2xl">Dashboard</span>
           </Link>
 
           <button

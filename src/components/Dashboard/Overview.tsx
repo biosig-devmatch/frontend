@@ -13,7 +13,7 @@ const Overview = () => {
           <div className="flex items-center gap-3.5 px-2 py-4">
             <div className="flex-shrink-0">
               <Image
-                src="/images/arbitrum-logo.png"
+                src="/images/dummy-image.png"
                 alt="Profile"
                 width={48}
                 height={48}

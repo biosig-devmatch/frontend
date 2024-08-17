@@ -2,23 +2,35 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronDown, ChevronUp, Plus, X } from 'lucide-react';
 import Link from 'next/link';
+import InputGroup from "@/components/FormElements/InputGroup";
 
-const SignerInput = ({ index, onRemove }: { index: number, onRemove: () => void }) => (
-  <div className="grid grid-cols-2 gap-4 mb-4">
-    <Input placeholder={`Signer name ${index + 1}`} className="bg-gray-800 border-gray-700 text-white" />
-    <div className="flex">
-      <Input placeholder="Wallet Address" className="bg-gray-800 border-gray-700 text-white flex-grow" />
-      {index > 1 && (
-        <Button variant="ghost" className="ml-2 text-red-500" onClick={onRemove}>
-          <X size={20} />
-        </Button>
-      )}
-    </div>
+const SignerInput = ({ index, totalSigners, onRemove }: { index: number, onRemove: () => void }) => (
+  <div className={`grid grid-cols-2 gap-4 mb-4 ${index === totalSigners - 1 ? 'pb-4' : ''}`}>
+      <InputGroup
+          label={`Signer Name ${index + 1}`}
+          type="text"
+          placeholder={`Enter signer name ${index + 1}`}
+          customClasses="w-full"
+      />
+      <div className={`mx-2 flex items-end`}>
+        <InputGroup
+            label="Wallet Address"
+            type="text"
+            placeholder="Enter your wallet address"
+            customClasses="w-full"
+        />
+        {index > 1 && (
+            <div>
+              <Button variant="ghost" className="ml-2 text-red-500" onClick={onRemove}>
+                <X size={35} />
+              </Button>
+            </div>
+        )}
+      </div>
   </div>
 );
 
@@ -50,17 +62,19 @@ const SignersPage = () => {
             {isExpanded && (
               <div className="space-y-4">
                 {signers.map((_, index) => (
-                  <SignerInput key={index} index={index} onRemove={() => removeSigner(index)} />
+                  <SignerInput key={index} index={index} totalSigners={signers.length} onRemove={() => removeSigner(index)} />
                 ))}
-                <Button variant="secondary" onClick={addSigner} className="w-full bg-gray-800 text-white hover:bg-gray-700">
-                  <Plus size={20} className="mr-2" /> Add more signer
-                </Button>
+                <div className="mt-6">
+                  <Button variant="secondary" onClick={addSigner} className="w-full bg-gray-800 text-white hover:bg-gray-700">
+                    <Plus size={20} className="mr-2" /> Add more signer
+                  </Button>
+                </div>
               </div>
             )}
           </CardContent>
         </Card>
         
-        <Card className="bg-gray-900 border-gray-800">
+        <Card className="bg-gray-900 border-gray-800 mb-16">
           <CardContent className="p-6">
             <h2 className="text-2xl mb-4 text-white">Thresholds</h2>
             <p className="mb-4 text-gray-400">Specify the threshold of signatures needed to approve transactions.</p>
