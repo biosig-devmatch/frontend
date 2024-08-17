@@ -4,7 +4,7 @@ import Home from '@/app/components/Dashboard/Home';
 
 export default function DashboardPage({ params }: { params: { multisigcontractaddress: string } }) {
   return (
-    <DefaultLayout>
+    <DefaultLayout multisigAddress={params.multisigcontractaddress}>
       <Home multisigAddress={params.multisigcontractaddress} />
     </DefaultLayout>
   );
