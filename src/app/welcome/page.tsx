@@ -30,7 +30,7 @@ const tagList = [
 const Tag = ({ label }: TagProps) => {
   return (
       <div
-          className={`flex items-center justify-start gap-2.5 text-center text-sm font-medium hover:bg-opacity-90 bg-dark rounded-[5px] text-white py-[14px] px-6`}
+          className={`flex items-center justify-start gap-2.5 text-sm font-medium hover:bg-opacity-90 bg-dark rounded-[5px] text-white py-[14px] px-6`}
       >
         <svg
             className="fill-current"
