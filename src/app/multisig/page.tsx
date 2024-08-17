@@ -1,10 +1,21 @@
-import React from 'react';
+"use client"
+
+import React, { useState } from 'react';
 
 import Link from 'next/link';
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
+import { useActiveAccount } from 'thirdweb/react';
 
 const MultisigSetupPage = () => {
+
+
+  const isConnected = useState(true);
+
+
+
+  const account = useActiveAccount();
+  
   return (
     <div className="bg-black text-white min-h-screen">      
       <main className="p-8">
@@ -14,7 +25,10 @@ const MultisigSetupPage = () => {
             <div className="bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center">1</div>
             <div className="flex-grow">
               <h2 className="text-xl mb-2">Connect Wallet</h2>
-              <Button variant="secondary">Connect</Button>
+              {
+                isConnected ? <Button variant="secondary">Connect</Button> 
+                :   <div>{account?.address}</div>
+                }
             </div>
           </li>
           <li className="flex items-center space-x-4">
