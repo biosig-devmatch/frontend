@@ -4,6 +4,7 @@ import { getAllDeployedContracts } from '@/lib/interactions/multisigFactoryInter
 import { interactWithMultisig } from '@/lib/interactions/multisigInteractions';
 import { useActiveAccount } from 'thirdweb/react';
 import Link from 'next/link';
+import { Button } from '@/app/components/ui/button';
 
 
 export default function MultisigExistingAccountPage() {
@@ -49,9 +50,15 @@ export default function MultisigExistingAccountPage() {
 
 return (
     <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Deployed Multisig Contracts</h1>
+        <h1 className="text-2xl font-bold mb-4">Deployed Multisig Contracts:</h1>
         {deployedContracts.length === 0 ? (
-            <p>No contracts deployed yet.</p>
+          <div className='flex flex-col my-2 items-center border-rounded border-2 border-gray-6 p-8 gap-4'>
+            <h2 className='text-2xl text-gray-6'>No contracts deployed yet.</h2>
+            <Button asChild className='px-24 text-2xl'>
+              <Link href='/multisig'>Deploy Now</Link>
+            </Button>
+          </div>
+            
         ) : (
             <ul className="space-y-4">
                 {deployedContracts.map((contract, index) => (
