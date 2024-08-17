@@ -68,7 +68,7 @@ const WelcomePage: React.FC = () => {
                   <p className="mb-10 flex w-full items-center justify-center gap-3.5">open an existing one.</p>
                 <div>
                   <Link
-                    href="/welcome/accounts"
+                    href="/multisig"
                     className="flex w-64 items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-[15px] font-medium hover:bg-opacity-50 dark:border-dark-3 dark:bg-dark dark:hover:bg-opacity-50"
                   >
                     Create an account

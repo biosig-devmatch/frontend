@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 import { motion, MotionValue } from "framer-motion";
 import React from "react";
 import { Orbitron } from "next/font/google";
+import Link from "next/link";
+import { Button } from "./button";
 
 const orbitron = Orbitron({ subsets: ["latin"] });
 
@@ -22,6 +24,8 @@ export const GoogleGeminiEffect = ({
   description?: string;
   className?: string;
 }) => {
+
+
   return (
     <div className={cn("sticky top-80", className)}>
       <p
@@ -37,9 +41,9 @@ export const GoogleGeminiEffect = ({
           `Elevating digital security with seamless multi-chain transactions and innovative biometric protection.`}
       </p>
       <div className="w-full h-[890px] -top-80 md:-top-60  flex items-center justify-center bg-red-transparent absolute ">
-        <button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto ">
-          Launch App
-        </button>
+          <Button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs w-fit mx-auto cursor-pointer hover:bg-black hover:text-white transition-colors duration-200 " asChild >
+            <Link href="/welcome">Launch App</Link>
+          </Button>
       </div>
       <svg
         width="1440"
