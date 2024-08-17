@@ -1,18 +1,12 @@
 "use client";
 
-import React, { useContext } from "react";
-import { MultisigContext } from '../../dashboard/[multisig_id]/page'; // Adjust this import path if necessary
+import React from "react";
+import { useMultisigContext } from '@/app/context/MultisigContext';
 import Overview from "./Overview";
 import TransactionQueue from "./TransactionQueue";
 
 const Home: React.FC = () => {
-  const context = useContext(MultisigContext);
-
-  if (!context) {
-    return <div>Loading...</div>;
-  }
-
-  const { multisigData, error, loading, multisigAddress } = context;
+  const { multisigData, error, loading, multisigAddress } = useMultisigContext();
 
   if (loading) {
     return <div>Loading multisig data...</div>;
