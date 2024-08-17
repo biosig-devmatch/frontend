@@ -105,7 +105,7 @@ const SignersPage = () => {
       
       <footer className="fixed bottom-0 w-full p-4 flex justify-between bg-gray-900">
         <Button asChild variant="secondary" className="bg-gray-800 text-white hover:bg-gray-700">
-          <Link href="/welcome/accounts/multisig-setup">Previous</Link>
+          <Link href="/multisig">Previous</Link>
         </Button>
         <Button variant="secondary" className="bg-gray-800 text-white hover:bg-gray-700">Continue</Button>
       </footer>

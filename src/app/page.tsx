@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <main>
-      <GoogleGeminiEffectDemo />
+        <GoogleGeminiEffectDemo />
       {showIntroduce && <IntroduceSection/>}
       {showTeam && <OurTeamSection />}
       <div className="h-[100px] bg-black"></div>

@@ -3,8 +3,16 @@ import React from 'react';
 import Link from 'next/link';
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
+import { useActiveAccount } from "thirdweb/react";
+import { client } from "../../../client";
+
+
 
 const MultisigSetupPage = () => {
+
+  // const activeAccount = useActiveAccount();
+  // console.log(activeAccount?.address);
+
   return (
     <div className="bg-black text-white min-h-screen">      
       <main className="p-8">
@@ -43,6 +51,14 @@ const MultisigSetupPage = () => {
       </main>
       
       <footer className="absolute bottom-0 w-full p-4 text-center text-gray-500">
+       <footer className="fixed bottom-0 w-full p-4 flex justify-between bg-gray-900">
+        <Button asChild variant="secondary" className="bg-gray-800 text-white hover:bg-gray-700">
+          <Link href="/welcome">Previous</Link>
+        </Button>
+        <Button variant="secondary" className="bg-gray-800 text-white hover:bg-gray-700">
+          <Link href='/dashboard[multisigAddress]'>Continue</Link>
+        </Button>
+      </footer>
         <a href="#" className="hover:text-white">Terms of Use</a> | <a href="#" className="hover:text-white">Privacy Policy</a>
       </footer>
     </div>
