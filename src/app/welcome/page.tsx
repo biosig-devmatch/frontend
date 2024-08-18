@@ -94,10 +94,10 @@ const WelcomePage: React.FC = () => {
               <Link className="mb-10 inline-block" href="/">
                 <Image
                     className="hidden dark:block"
-                    src={"/images/dummy-image.png"}
+                    src={"/biosig_logo.png"}
                     alt="Logo"
-                    width={100}
-                    height={100}
+                    width={150}
+                    height={150}
                 />
               </Link>
               <h1 className="mb-4 text-2xl font-bold text-dark dark:text-white sm:text-heading-3">
