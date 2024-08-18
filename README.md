@@ -1,4 +1,4 @@
-# [BioSig Wallet](https://www.biosig.lol/) - Smart Contract on Scroll
+# Biosig
 
 ## What is BioSig Wallet❓
 A **multisig wallet** that uses **biometric account abstraction** to enable seedless interactions and secure asset transfers across **multiple chains**.
