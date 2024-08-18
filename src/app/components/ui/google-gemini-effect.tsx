@@ -36,7 +36,7 @@ export const GoogleGeminiEffect = ({
       </p>
       <p className="text-xs md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
         {description ||
-          `Elevating digital security with seamless multi-chain transactions and innovative biometric protection.`}
+          `A multisig wallet that uses biometric authentication to enable seedless interactions and secure asset transfers across multiple chains.`}
       </p>
       <div className="w-full h-[890px] -top-80 md:-top-60  flex items-center justify-center bg-red-transparent absolute ">
         <Button asChild className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto ">
