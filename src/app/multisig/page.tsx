@@ -213,7 +213,7 @@ const getDeployedMultisigAddress = async (name: string) => {
           <Link href="/welcome">Previous</Link>
         </Button>
         <Button variant="secondary" className="bg-gray-800 text-white hover:bg-gray-700">
-          <Link href='/dashboard[multisigAddress]'>Continue</Link>
+          <Link href='/dashboard/0x3aA19844F24d5A0C4a60EE6cA8A7e4b4b68DE28E'>Continue</Link>
         </Button>
         <a href="#" className="hover:text-white">Terms of Use</a> | <a href="#" className="hover:text-white">Privacy Policy</a>
       </footer>
