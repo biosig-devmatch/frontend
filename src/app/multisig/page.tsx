@@ -91,6 +91,7 @@ const MultisigSetupPage: React.FC = () => {
       functionName: "initialize",
       args: [owners, BigInt(threshold)],
     });
+    console.log("Encoded data:", encodedData);
 
     const provider = new ethers.JsonRpcProvider(scrollSepoliaRpcUrl);
     const signer = await provider.getSigner();
@@ -98,6 +99,7 @@ const MultisigSetupPage: React.FC = () => {
     const factoryContract = new ethers.Contract(contractAddress, MultisigFactoryABI, signer);
 
     const tx = await factoryContract.deployContract(multisigName, encodedData);
+
     await tx.wait();
 
     console.log("Multisig deployed successfully!");
@@ -203,7 +205,7 @@ const getDeployedMultisigAddress = async (name: string) => {
             </div>
           </li>
         </ol>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit} className='text-black bg-white p-4 rounded-md hover:text-white hover:bg-black'>Submit</button>
       </main>
     
     <footer className="absolute bottom-0 w-full p-4 justify-between text-center text-gray-500">
