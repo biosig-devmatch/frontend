@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [BioSig Wallet](https://www.biosig.lol/) - Smart Contract on Scroll
 
-## Getting Started
+## What is BioSig Wallet❓
+A **multisig wallet** that uses **biometric account abstraction** to enable seedless interactions and secure asset transfers across **multiple chains**.
 
-First, run the development server:
+## Product Description
+### 📌 **Problem Statement**
+This innovative project seeks to address several key challenges currently facing the DeFi space,
+1. Onboarding Web 2 users into Web 3 is often complex and daunting, especially when come to transaction and wallet management.
+2. Challenges include managing seed phrases, signing multiple transactions, and navigating gas fees.
+3. High risk of errors during transactions.
+4. Multisignature solutions offer enhanced security and reduce the chances of mistakes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### ✅ **Vision**
+Simplify the onboarding process using account abstraction, making it easy for users to interact with wallet across all chains with minimal friction and utilize multisig to securely sign transactions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🌟 **Unique Value Proposition**
+What makes BioSig unique is its combination of features: a multisignature wallet, biometric account abstraction, gas abstraction, and support for multichain functionality.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ How it's make?
+1. Multisignature Wallet - Requires multiple approvals for transactions, enhancing security.
+2. Biometrics Account Abstraction - Integrates biometric authentication, allowing secure access without traditional keys.
+3. Gas Abstraction - Simplifies transactions by covering or reducing gas fees across blockchains.
+4. Multichain Wallet - Manages assets across multiple blockchains from a single interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 💻 The Stack
+1. Frontend - TypeScript, TailwindCSS
+2. UI Library - Tailwindcss, Google Fonts
+3. Web3 Development - Solidity, Thirdweb, Web3.js, Ethers.js
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contract Address
+### **Scroll**
+1. [MultiSig Factory](0x96f45a38490D74FE6c34aEeE06c1098d5dA287d6)
+2. [MultiSig Implementation](0xc760D8A49f1EC1e5916e795AbAC6044E0C19fdaf)
+3. [MultiSig Wallet(name: anna)](0x76128f14e8a7b5f3F179161081f0D04fCAAdee21)
