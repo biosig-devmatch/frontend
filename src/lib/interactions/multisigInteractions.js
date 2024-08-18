@@ -1,9 +1,10 @@
 
 import { ethers } from 'ethers';
 
-const scrollSepoliaRpcUrl = "https://sepolia-rpc.scroll.io/";
+export const contractAddressMI = "0xc760D8A49f1EC1e5916e795AbAC6044E0C19fdaf";
+export const scrollSepoliaRpcUrl = "https://sepolia-rpc.scroll.io/";
 
-const MultisigABI = [
+export const MultisigABI = [
     {
       "inputs": [
         { "internalType": "address[]", "name": "owners", "type": "address[]" },
@@ -79,6 +80,8 @@ export async function interactWithMultisig(multisigAddress) {
     // Example: Get required signatures
     const requiredSignatures = await contract.getRequiredSignatures();
     console.log("Required signatures:", requiredSignatures);
+
+    
 
     // Example: Get a specific transaction (assuming transaction ID 0 exists)
     try {
