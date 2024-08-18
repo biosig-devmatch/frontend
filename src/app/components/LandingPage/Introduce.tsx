@@ -25,7 +25,7 @@ const IntroduceSection = () => {
         <div className="md:w-1/2 md:px-16 flex justify-center items-center">
           <div className="relative h-64 md:h-96 w-full">
             <img
-              src="/biosig_logo.jpg"
+              src="/biosig_logo.png"
               alt="BioSig Wallet"
               className="object-cover h-full w-full"
             />
