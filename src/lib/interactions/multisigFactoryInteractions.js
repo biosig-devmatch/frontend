@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 
-const contractAddress = "0x32885F7C8E9af7a9c371e1A6F99a35C5f9181244";
-const MultisigFactoryABI = [
+export const contractAddress = "0x96f45a38490D74FE6c34aEeE06c1098d5dA287d6";
+export const MultisigFactoryABI = [
   {"inputs":[{"internalType":"address","name":"_implementation","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},
   {"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"_deployer","type":"address"},{"indexed":false,"internalType":"string","name":"_name","type":"string"},{"indexed":false,"internalType":"address","name":"_deployedContract","type":"address"},{"indexed":false,"internalType":"address","name":"_implementation","type":"address"}],"name":"ContractDeployed","type":"event"},
   {"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"_caller","type":"address"},{"indexed":false,"internalType":"address","name":"_implementation","type":"address"}],"name":"ImplementationUpdated","type":"event"},
@@ -16,7 +16,7 @@ const MultisigFactoryABI = [
 ];
 
 // Scroll Sepolia RPC URL
-const scrollSepoliaRpcUrl = "https://sepolia-rpc.scroll.io/";
+export const scrollSepoliaRpcUrl = "https://sepolia-rpc.scroll.io/";
 
 export async function getAllDeployedContracts() {
   try {

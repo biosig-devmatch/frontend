@@ -34,6 +34,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "thirdweb": "^5.46.1",
+    "viem": "^2.19.6",
     "zod": "^3.23.8"
   },
   "devDependencies": {
