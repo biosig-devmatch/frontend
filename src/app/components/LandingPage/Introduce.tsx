@@ -18,23 +18,14 @@ const IntroduceSection = () => {
             BioSig Wallet
           </h2>
           <p className="text-sm md:text-base text-gray-300 text-justify">
-            BioSig Wallet addresses the challenges of onboarding Web 2 users
-            into the Web 3 space by simplifying complex processes like managing
-            seed phrases, signing transactions, and handling gas fees across
-            multiple blockchains. Built on the EVM chain and leveraging EIP-4337
-            for account abstraction, BioSig Wallet offers a seamless user
-            experience. With features like multisignature wallets for enhanced
-            security, biometric verification for easy access, gas abstraction
-            for cost efficiency, and multichain support for cross-chain
-            transactions, BioSig Wallet makes interacting with Web 3 effortless
-            and secure for mainstream adoption.
+            BioSig Wallet is a multisig wallet designed for secure digital asset storage. Built on the Scroll Sepolia, Sepolia, and Aptos testnet protocols, it ensures your assets are protected. BioSig supports multichain operations, offers gasless transactions, and enables seamless sending and receiving of digital assets.
           </p>
         </div>
 
         <div className="md:w-1/2 md:px-16 flex justify-center items-center">
           <div className="relative h-64 md:h-96 w-full">
             <img
-              src="/bio.jpg"
+              src="/biosig_logo.jpg"
               alt="BioSig Wallet"
               className="object-cover h-full w-full"
             />

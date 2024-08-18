@@ -16,11 +16,11 @@ const OurTeamSection = () => {
           Our Team
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <TeamMemberCard name="HI" role="Backend Developer" />
-          <TeamMemberCard name="HI" role="Backend Developer" />
-          <TeamMemberCard name="HI" role="Frontend Developer" />
-          <TeamMemberCard name="HI" role="Frontend Developer" />
-          <TeamMemberCard name="HI" role="Frontend Developer" />
+          <TeamMemberCard name="Cheong Yee Chian" role="Developer" />
+          <TeamMemberCard name="Garbriel Yong" role="Developer" />
+          <TeamMemberCard name="Ng Ren Yan" role="Developer" />
+          <TeamMemberCard name="Goh Wei Qi" role="Developer" />
+          <TeamMemberCard name="Low Cheng Ing" role="Developer" />
         </div>
       </div>
     </div>
